@@ -1,0 +1,12 @@
+_target_: src.datamodules.WikiEditDataset
+seed: ${seed}
+data_path: /scratch/gfeng/Edit_summary_generation/data/samples/202209_filter_plaintext_sample1000.csv
+cache_path: null
+extend_cache: False
+demonstration_path: null  # path to the demonstration csv file. If not None, samples from the demonstrations will be ignored in the input data
+limit: -1
+diff_level: Sentence
+lang: en
+
+dataloader_params:
+    batch_size: 8

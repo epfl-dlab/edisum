@@ -1,0 +1,13 @@
+# old text + new text -> generate edit summary
+
+_target_: src.openai.prompting.formatters.ChatFormatter
+
+# format definition of prompt
+query_format: "old text:\n{text1}\n\nnew text:\n{text2}"
+demonstration_format: "old text:\n{text1}\n\nnew text:\n{text2}"
+system_instruction: "You are writing comment summaries for Wikipedia article edits. Comment should explain what was done in the edit. \
+Edited part of the article will be given in the form of old and new text. Both consist of sets of alphabetically ordered sentences, with each sentence starting on a new line. \
+You will write a comment based on these sentences. Here are some guidelines to follow:
+- If new text has more sentences, consider summarizing the added content or explaining that sentences were split by adding a full stop
+- If old text has more sentences, consider summarizing the removed content or explaining that sentences were merged by adding a comma"
+system_instruction_only: True

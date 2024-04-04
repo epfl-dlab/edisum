@@ -1,0 +1,31 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: _default
+  - override /model: flan_t5_base
+  - override /trainer: cpu # single_gpu
+
+test: true
+
+datamodule:
+  batch_size: 8
+  num_workers: 4
+  debug: true
+  debug_k: 12
+
+callback:
+  model_checkpoint:
+    save_top_k: 1
+
+model:
+  optimizer:
+    lr: 3.0e-04
+    adam_eps: 1.0e-08
+    weight_decay: 0.05
+  scheduler:
+    name: polynomial
+    lr_end: 3.0e-05
+    warmup_updates: 1000
+    total_num_updates: ${trainer.max_steps}
+
+run_name: "finetune_demo"

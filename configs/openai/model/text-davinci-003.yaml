@@ -1,0 +1,15 @@
+_target_: src.openai.OpenAIAPI
+model: "text-davinci-003"
+dry_run: False
+no_gen: False
+n_workers_per_key: 1
+api_keys: ???
+generation_parameters:
+  max_tokens: 256
+  best_of: 1
+  temperature: 0.7
+  top_p: 1
+  frequency_penalty: 0.2
+  presence_penalty: 0
+  # stop: "\n"
+  n: 1

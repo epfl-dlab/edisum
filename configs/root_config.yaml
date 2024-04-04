@@ -1,0 +1,12 @@
+defaults:
+  - _self_
+  - openai: openai_root
+
+# path to work directory
+work_dir: ${hydra:runtime.cwd}
+# path to data directory
+data_dir: ${work_dir}/data/
+# path to output directory, created dynamically by hydra
+output_dir: ${hydra:runtime.output_dir}
+
+seed: 2023

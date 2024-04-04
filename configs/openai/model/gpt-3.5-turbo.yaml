@@ -1,0 +1,13 @@
+_target_: src.openai.OpenAIAPI
+model: "gpt-3.5-turbo"
+dry_run: False
+no_gen: False
+gen_dataset: False
+n_workers_per_key: 1
+api_keys: ???
+generation_parameters:
+  max_tokens: 1000
+  temperature: 0
+  top_p: 1
+  frequency_penalty: 0.2
+  presence_penalty: 0

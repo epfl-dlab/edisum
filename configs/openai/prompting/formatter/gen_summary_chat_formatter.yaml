@@ -1,0 +1,9 @@
+# old text + new text -> generate edit summary
+
+_target_: src.openai.prompting.formatters.ChatFormatter
+
+# format definition of prompt
+query_format: "text removed:\n{text1}\ntext added:\n{text2}"
+demonstration_format: "text removed:\n{text1}\ntext added:\n{text2}"
+user_instruction: "You are presented with the edit of a Wikipedia article in a form of text that was removed and added. Give a brief summary of the edit in a form of a comment no longer than 15 words."
+system_instruction: "You are an assistant that writes comments about the change for Wikipedia edits"

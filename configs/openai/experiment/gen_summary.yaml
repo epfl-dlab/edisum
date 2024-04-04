@@ -1,0 +1,26 @@
+# defaults:
+  # - override /datamodule: triplets_only
+  # - override /openai/model: code-davinci-002
+  # - override /openai/prompting: gen_summary_prompt
+
+# datamodule:
+#   debug: False
+#   file_name: small_rebel_sample
+#   dataset_parameters:
+#     test:
+#       dataset:
+#         load_dataset_params:
+#           ids_to_keep: [7, 5, 3, 12]
+
+# model:
+#   dry_run: False
+
+#   generation_parameters:
+#     max_tokens: 256
+#     best_of: 5
+#     temperature: 0.7
+#     top_p: 1
+#     frequency_penalty: 0.2
+#     presence_penalty: 0
+#     stop: "\n"
+#     n: 1

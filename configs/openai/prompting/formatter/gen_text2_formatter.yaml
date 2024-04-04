@@ -1,0 +1,9 @@
+# old text + edit summary -> generate new text 
+
+_target_: src.openai.prompting.formatters.SimpleFormatter
+
+# format definition of prompt
+global_format: "{instruction}\n\n{demonstration}\n\n{query}text2:"
+query_format: "The input is:\n{text1}\ncomment:{target}\n"
+demonstration_format: "text1:\n{text1}\ncomment:{target}\ntext2:\n{text2}"
+instruction: "Generate an edited text2 from an old text text1 following the comment as instructions."

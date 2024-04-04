@@ -1,0 +1,37 @@
+defaults:
+  - optimizer: adam_w
+  - scheduler: polynomial
+
+_target_: src.models.T5PL
+
+from_pretrained: True
+hparams_overrides: null
+hf_config_overrides: null
+
+default_collator_parameters:
+  max_input_length: ${datamodule.max_num_tokens_input}
+  max_output_length: ${datamodule.max_num_tokens_target}
+  padding: "longest"
+  truncation: True
+
+additional_special_tokens: ["<old_text>", "<new_text>", "<sent_sep>"]
+batch_size: ${datamodule.batch_size}
+
+inference:
+  hf_generation_params:
+    num_beams: 10
+    num_return_sequences: 1 # ${.num_beams}
+
+    early_stopping: False
+
+    encoder_no_repeat_ngram_size: 0
+    no_repeat_ngram_size: 0
+
+    temperature: 1.0
+    length_penalty: 1.0
+    #    return_dict_in_generate: True
+    #    output_scores: True
+    max_new_tokens: 256
+
+
+eps: 0.1  # epsilon for label_smoothed_nll_loss

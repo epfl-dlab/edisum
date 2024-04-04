@@ -1,0 +1,46 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: _default
+  - override /model: long_t5_local
+  - override /trainer: single_gpu # [single_gpu, cpu]
+
+logs_subfolder: inference
+trainer:
+  devices: [1]  # Number of devices to train on (int), which devices to train on (list or str), or "auto".
+  max_steps: -1
+  max_epochs: 5
+
+test: true
+resume_from_checkpoint: /scratch/gfeng/Edit_summary_generation/output/train/runs/finetune_demo_longt5_dataset-raw_summary_1000/2023-05-21_23-46-51/checkpoints/model-epoch_149-step_44700-val_nll-4.7902.ckpt
+
+dataset_parameters:
+  train: null
+  val: null
+
+datamodule:
+  data_dir: /scratch/gfeng/Edit_summary_generation/data/edit_summary_data/raw_summary_1000
+  use_prefix: false
+  batch_size: 2
+  num_workers: 8
+  debug: false
+  debug_k: 12
+  max_num_tokens_input: 1024 
+  max_num_tokens_target: 1024
+
+callback:
+  model_checkpoint:
+    save_top_k: 1
+
+model:
+  optimizer:
+    lr: 3.0e-04
+    adam_eps: 1.0e-08
+    weight_decay: 0.05
+  scheduler:
+    name: polynomial
+    lr_end: 3.0e-05
+    warmup_updates: 1000
+    total_num_updates: ${trainer.max_steps}
+
+run_name: "inference_demo_longt5_dataset-raw_summary_1000"

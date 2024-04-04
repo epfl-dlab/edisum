@@ -1,0 +1,10 @@
+
+_target_: src.openai.prompting.retrievers.FileRetriever
+
+path_to_edit_samples: "/scratch/gfeng/Edit_summary_generation/data/demonstrations/good_edit_examples.csv"
+num_retrieve: 2  # integer number or None (retrieve all in the file)
+level: "Sentence"
+lang: "en"
+random: False  # whether to randomly choose the samples
+general_sample_revids: []
+mannual_pick_revids: []

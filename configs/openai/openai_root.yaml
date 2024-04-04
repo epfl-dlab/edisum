@@ -1,0 +1,7 @@
+defaults:
+  - _self_
+  - optional local: default.yaml
+  - model: text-davinci-003
+  - prompting: simple_prompting
+  - datamodule: wikidump
+

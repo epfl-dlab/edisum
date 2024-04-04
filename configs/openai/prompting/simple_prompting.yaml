@@ -1,0 +1,5 @@
+defaults:
+  - formatter: gen_summary_formatter
+  - retriever: simple_retriever
+
+_target_: src.openai.prompting.SimplePrompting
