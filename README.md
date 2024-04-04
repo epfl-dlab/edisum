@@ -25,7 +25,7 @@ Alternatively, to download the collected data for the experiments, run:
 bash ./download_data.sh
 ```
 
-For downloading the trained models (available on [hugginface]()), run:
+For downloading the trained models (available on [huggingface](https://huggingface.co/msakota/edisum/tree/main)), run:
 
 ```bash
 bash ./download_models.sh
@@ -44,7 +44,7 @@ To run inference on a trained model:
 
 ```bash
 DATA_DIR="./data/100_perc_synth_data/" # specify a directory where training data is located
-CHECKPOINT_PATH="./models/edisum_100.ckpt"
+CHECKPOINT_PATH="./models/edisum_100.ckpt" # specify path to the trained model
 RUN_NAME="inference_longt5_100_synth"
 python run_inference.py run_name=$RUN_NAME dir=$DATA_DIR checkpoint_path=$CHECKPOINT_PATH +experiment=inference_longt5
 ```
