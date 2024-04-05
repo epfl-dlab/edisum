@@ -1,5 +1,15 @@
 # Edisum
-This repository contains the PyTorch implementation for the models and experiments in the paper "Edisum: Summarizing and Explaining Wikipedia Edits at Scale"
+This repository contains the PyTorch implementation for the models and experiments in the paper [Edisum: Summarizing and Explaining Wikipedia Edits at Scale]()
+
+```
+@article{šakota2024edisum,
+      title={Edisum: Summarizing and Explaining Wikipedia Edits at Scale}, 
+      author={Marija Šakota and Isaac Johnson and Guosheng Feng and Robert West},
+      journal={arXiv preprint arXiv:2404.03428}
+      year={2024}
+}
+```
+Please consider citing our work, if you found the provided resources useful.
 
 ## 1. Setup
 Start by cloning the repository:
