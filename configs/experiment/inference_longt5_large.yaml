@@ -3,16 +3,17 @@
 defaults:
   - override /datamodule: _default
   - override /model: long_t5_large
-  - override /trainer: single_gpu # [single_gpu, cpu]
+  - override /trainer: ddp # [single_gpu, cpu]
 
 dir: ???
 checkpoint_path: ???
 
 logs_subfolder: inference
 trainer:
-  devices: [1]  # Number of devices to train on (int), which devices to train on (list or str), or "auto".
+  devices: [0,1]  # Number of devices to train on (int), which devices to train on (list or str), or "auto".
   max_steps: -1
-  max_epochs: 5
+  max_epochs: 10
+  accumulate_grad_batches: 1
 
 test: true
 resume_from_checkpoint: ${checkpoint_path}
