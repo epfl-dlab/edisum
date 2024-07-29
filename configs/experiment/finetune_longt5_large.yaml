@@ -9,8 +9,9 @@ trainer:
 #  devices: [0]  # Number of devices to train on (int), which devices to train on (list or str), or "auto".
   max_steps: -1
   max_epochs: 10
-  devices: [0,1]
+  devices: 2
   accumulate_grad_batches: 1
+  val_check_interval: 10000
 
 test: true
 dir: ???
